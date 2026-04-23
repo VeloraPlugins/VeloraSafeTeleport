@@ -1,0 +1,134 @@
+# ========================================
+#       VeloraSafeTeleport Settings
+# ========================================
+# Enable debug logging in console.
+# When enabled, the plugin will print extra information about blocked teleports and internal checks.
+debug: false
+# General plugin settings.
+# Contains shared options such as bypass permissions and other global behaviour.
+general:
+  # If enabled, players with the bypass permission will ignore all SafeTeleport checks.
+  allowBypass: false
+  # Players with this permission bypass all SafeTeleport checks.
+  bypassPermission: velorasafeteleport.bypass
+# Teleport cause listener settings.
+# Controls which teleport causes SafeTeleport should validate.
+causes:
+  # Listen to ender pearl teleports.
+  # Recommended: true
+  enderPearl: true
+  # Listen to command teleports.
+  # Examples: /spawn, /warp, /home, /tp
+  command: false
+  # Listen to plugin teleports.
+  # This includes teleports triggered by other plugins.
+  plugin: false
+  # Listen to nether portal teleports.
+  netherPortal: false
+  # Listen to end portal teleports.
+  endPortal: false
+  # Listen to spectate teleports.
+  spectate: false
+  # Listen to end gateway teleports.
+  endGateway: false
+  # Listen to chorus fruit teleports.
+  # Recommended: true
+  chorusFruit: true
+  # Listen to dismount teleports.
+  dismount: false
+  # Listen to exit bed teleports.
+  exitBed: false
+  # Listen to unknown teleport causes.
+  # Usually not recommended.
+  unknown: false
+# Ender pearl protection settings.
+# Controls how ender pearl teleports are validated and blocked.
+enderPearl:
+  # Enable ender pearl safety checks.
+  # When enabled, pearl teleports will be validated before the player is allowed to land.
+  enabled: true
+  # Require enough physical space at the teleport destination.
+  # If enabled, the plugin checks whether the player has enough room to fit at the target location.
+  # This helps prevent clipping into tight spaces or invalid pearl landing spots.
+  requireEnoughSpace: true
+  # Prevent pearls from clipping through walls.
+  # If enabled, the plugin checks whether the pearl teleport path passes through a wall or solid obstruction.
+  # This helps block common pearl glitch methods used to clip through blocks.
+  preventWallGlitches: true
+  # Prevent teleports inside solid or illegal blocks.
+  # If enabled, pearl teleports will be blocked when the destination is inside a solid block
+  # or inside a material marked as illegal in the shared teleport check settings.
+  preventInsideBlockTeleports: true
+# Chorus fruit protection settings.
+# Controls how chorus fruit teleports are validated and blocked.
+chorusFruit:
+  # Enable chorus fruit safety checks.
+  # When enabled, chorus fruit teleports will be validated before the player is allowed to land.
+  enabled: true
+  # Require enough physical space at the teleport destination.
+  # If enabled, the plugin checks whether the player has enough room to fit at the target location.
+  # This helps prevent clipping into tight spaces or invalid teleport spots.
+  requireEnoughSpace: true
+  # Prevent teleports inside solid or illegal blocks.
+  # If enabled, chorus fruit teleports will be blocked when the destination is inside a solid block
+  # or inside a material marked as illegal in the shared teleport check settings.
+  preventInsideBlockTeleports: true
+# Shared teleport safety checks.
+# These settings apply to teleport validation in general, such as bounds, world border checks, and collision checks.
+checks:
+  # Block teleports outside the world border.
+  # If enabled, teleport destinations outside the active world border will be denied.
+  checkWorldBorder: true
+  # Block teleports outside configured bounds.
+  # If enabled, the plugin will also validate teleport destinations against the configured min/max coordinates.
+  # This is useful for preventing arena escapes, map glitches, or teleports outside playable regions.
+  checkBounds: false
+  # Use bounding box overlap checks for destination safety.
+  # If enabled, the plugin checks whether the player's hitbox would overlap with nearby blocks at the target location.
+  # This helps catch teleports into tight spaces even when simple block checks may look safe.
+  useBoundingBoxCheck: true
+  # Use passable checks on destination blocks.
+  # If enabled, the plugin checks whether the feet and head blocks at the destination are passable.
+  # This is a fast basic safety check before more advanced collision logic is applied.
+  usePassableCheck: true
+  # Use ray tracing to detect wall clipping.
+  # If enabled, the plugin traces the teleport path to detect cases where players may clip through walls or solid obstacles.
+  # This is mainly useful for ender pearl glitch prevention.
+  useRayTraceCheck: true
+  # Materials considered illegal teleport destinations.
+  # If a teleport lands inside one of these materials, it will be treated as unsafe and blocked.
+  illegalMaterials:
+  - BARRIER
+  - BEDROCK
+  - END_PORTAL
+  - END_PORTAL_FRAME
+  - NETHER_PORTAL
+  # Configured bounds settings.
+  # These settings define the allowed coordinate area for teleport destinations when bounds checking is enabled.
+  bounds:
+    # Configured teleport boundary settings.
+    # These values define the allowed area players may teleport into.
+    # If a teleport destination is outside these coordinates, it can be blocked.
+    # This is useful for preventing map escapes, arena glitches, or teleports outside playable regions.
+    # Only worlds listed in enabledWorlds will use these bounds.
+    # If enabledWorlds is empty, the bounds will apply to all worlds.
+    enabledWorlds: []
+    # Minimum allowed X coordinate for teleport destinations.
+    minX: -3.0E7
+    # Minimum allowed Y coordinate for teleport destinations.
+    minY: -64.0
+    # Minimum allowed Z coordinate for teleport destinations.
+    minZ: -3.0E7
+    # Maximum allowed X coordinate for teleport destinations.
+    maxX: 3.0E7
+    # Maximum allowed Y coordinate for teleport destinations.
+    maxY: 320.0
+    # Maximum allowed Z coordinate for teleport destinations.
+    maxZ: 3.0E7
+# Fallback behaviour when teleports are blocked.
+# Controls what happens after an unsafe teleport is denied, such as returning the player to a safe location.
+fallback:
+  # Teleport the player back to their last known safe location when a teleport is blocked.
+  # This gives the player a safe fallback position instead of only cancelling the teleport.
+  # The safe location is updated while the player moves through valid locations.
+  rollbackToLastSafeLocation: true

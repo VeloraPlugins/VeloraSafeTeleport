@@ -1,0 +1,109 @@
+name: Bug Report
+description: Report a bug with VeloraSafeTeleport
+labels: ["bug: unconfirmed"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for creating a bug report. Before you fill this out, please read the following:
+        1. Make sure you are using the latest version of VeloraSafeTeleport.
+        2. Make sure this issue has not already been reported.
+        3. Please only report **one** bug per issue.
+        4. Do not post temporary Discord image/video links, as they expire quickly.
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: Describe the bug in as much detail as possible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How to reproduce
+      description: Please provide clear step-by-step instructions so the issue can be reproduced.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: teleport-cause
+    attributes:
+      label: Teleport cause
+      description: Which teleport type was involved?
+      options:
+        - Ender Pearl
+        - Chorus Fruit
+        - Command
+        - Plugin
+        - Nether Portal
+        - End Portal
+        - End Gateway
+        - Spectate
+        - Dismount
+        - Exit Bed
+        - Unknown
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      placeholder: ex. 1.0.0-BETA
+    validations:
+      required: true
+
+  - type: input
+    id: server-version
+    attributes:
+      label: Server version
+      placeholder: ex. Paper 1.21.1
+    validations:
+      required: true
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Relevant config section
+      description: Paste the relevant part of your config if it may be related to the issue.
+      render: yml
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Videos
+      description: Screenshots and/or videos of the issue in action.
+      placeholder: |-
+        https://prnt.sc/example1
+        https://imgur.com/example2
+        https://gyazo.com/example3
+    validations:
+      required: false
+
+  - type: input
+    id: server-log
+    attributes:
+      label: Server log
+      description: Your server's logs/latest.log uploaded to a paste service such as mclo.gs or mcpaste.io
+      placeholder: ex. https://mclo.gs/abcdefg
+    validations:
+      required: false
+
+  - type: input
+    id: confirmation
+    attributes:
+      label: Filled out form correctly and using latest version
+      description: |
+        Please type **I confirm** to acknowledge the following:
+        - You are using the latest version of the plugin.
+        - You have checked that this issue has not already been reported.
+        - You have filled out this report correctly.
+        - You have not posted temporary Discord media links.
+      placeholder: 'Type "I confirm" here'
+    validations:
+      required: true
+      pattern: '^I confirm$'

@@ -1,0 +1,14 @@
+prefix: '<gray>[<gold>SafeTeleport</gold>]</gray> '
+messages:
+  help: '{prefix}<gray>Available commands: <yellow>/safeteleport reload</yellow><gray>,
+    <yellow>/safeteleport debug</yellow></gray>'
+  teleport-blocked: '{prefix}<red>This teleport was blocked because the destination
+    is unsafe.</red>'
+  pearl-blocked: '{prefix}<red>You cannot pearl there.</red>'
+  chorus-blocked: '{prefix}<red>You cannot teleport there with chorus fruit.</red>'
+  moved-to-safe-location: '{prefix}<yellow>You were moved to your last safe location.</yellow>'
+  no-safe-location: '{prefix}<red>No safe fallback location could be found.</red>'
+  reload-success: '{prefix}<green>VeloraSafeTeleport reloaded successfully.</green>'
+  debug-status: '{prefix}<gray>Debug is currently <yellow>{status}</yellow><gray>.</gray>'
+  debug-blocked: '{prefix}<dark_gray>[DEBUG]</dark_gray> <gray>Blocked teleport: <white>{cause}</white>
+    <gray>Reason: <white>{reason}</white></gray>'

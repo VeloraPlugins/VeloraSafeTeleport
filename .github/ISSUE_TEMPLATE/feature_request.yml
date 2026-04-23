@@ -1,14 +1,15 @@
 name: Feature Request
 description: Suggest a feature or improvement for VeloraSafeTeleport
+title: "[Feature]: "
 labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for suggesting a feature for VeloraSafeTeleport.
+        Thanks for suggesting an improvement for VeloraSafeTeleport.
 
   - type: textarea
-    id: feature-description
+    id: feature_description
     attributes:
       label: Describe the feature
       description: Describe the feature or improvement you would like to see.
@@ -16,27 +17,27 @@ body:
       required: true
 
   - type: textarea
-    id: problem
+    id: problem_solved
     attributes:
       label: What problem does this solve?
-      description: Explain what issue, limitation, or use case this feature would help with.
+      description: Explain why this would be useful.
     validations:
       required: true
 
   - type: textarea
-    id: extra
+    id: extra_context
     attributes:
       label: Additional context
-      description: Add any extra context, examples, or screenshots here.
+      description: Add examples, use cases, or screenshots if helpful.
     validations:
       required: false
 
-  - type: input
-    id: confirmation
+  - type: checkboxes
+    id: confirmations
     attributes:
-      label: Confirm feature request
-      description: Type **I confirm** to confirm this is a feature request and not a bug report.
-      placeholder: 'Type "I confirm" here'
-    validations:
-      required: true
-      pattern: '^I confirm$'
+      label: Confirmations
+      options:
+        - label: This is a feature request and not a bug report
+          required: true
+        - label: I have checked that this feature has not already been suggested
+          required: true

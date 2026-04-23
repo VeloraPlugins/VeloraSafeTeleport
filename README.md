@@ -73,3 +73,9 @@ If you find a bug or want to suggest an improvement, open an issue in this repos
 - VeloraSafeTeleport is currently in beta
 - More teleport protection features will be added over time
 - Recommended for servers that want extra protection against teleport clipping exploits
+
+## Support
+
+For support, questions, or bug reports, please open an issue in this repository or join our Discord support server.
+
+**Discord:** https://discord.gg/UEW3AJnMqx
